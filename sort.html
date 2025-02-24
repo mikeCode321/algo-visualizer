@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorting Visualizer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f7f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    canvas {
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    h1 {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .controls button, .controls input {
+      background-color: #6c63ff;
+      color: white;
+      padding: 12px 20px;
+      font-size: 14px;
+      border: none;
+      border-radius: 8px;
+      margin: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .controls button:hover, .controls input:focus {
+      background-color: #5748d0;
+      transform: translateY(-2px);
+    }
+
+    .controls input {
+      width: 60px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .controls button:disabled {
+      background-color: #e1e1e1;
+      cursor: not-allowed;
+    }
+
+    .controls span {
+      display: block;
+      margin-top: 15px;
+      font-size: 16px;
+      color: #6c63ff;
+      font-weight: 600;
+    }
+
+    #algorithmName {
+      font-weight: 600;
+      margin-top: 10px;
+      color: #333;
+      font-size: 18px;
+    }
+
+    #numBars {
+      padding: 12px 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Sorting Visualizer</h1>
+    <canvas id="sortingCanvas" width="800" height="400"></canvas>
+    <div class="controls">
+      <button id="insertionSortBtn">Insertion Sort</button>
+      <button id="bubbleSortBtn">Bubble Sort</button>
+      <button id="quickSortBtn">Quick Sort</button>
+      <button id="mergeSortBtn">Merge Sort</button>
+      <button id="startBtn" disabled>Start Sorting</button>
+      <button id="resetBtn">Reset</button>
+      <span>Bars: <input type="number" id="numBars" min="10" max="200" value="100"></span>
+      <button id="updateBarsBtn">Update Bars</button>
+      <button id="toggleDirectionBtn">Toggle Direction</button>
+    </div>
+    <div id="algorithmName">Current Algorithm: None</div>
+  </div>
+
+  <script src="scriptsort.js"></script>
+</body>
+</html>
