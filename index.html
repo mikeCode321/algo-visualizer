@@ -3,22 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pathfinding Visualization</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <title>Pathfinding and Sorting Visualizer</title>
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Pathfinding Visualization</h1>
-    <div id="grid-container"></div>
-    <div class="controls">
-      <button id="start-dfs-button" class="control-button">Start DFS</button>
-      <button id="start-dijkstra-button" class="control-button">Start Dijkstra</button>
-      <button id="start-astar-button" class="control-button">Start A*</button>
-      <button id="reset-path-button" class="control-button">Reset Path</button>
-      <button id="reset-button" class="control-button">Reset</button>
+    <!-- Tab Navigation -->
+    <div class="tabs">
+      <button id="pathfindingTab" class="tab-btn active">Pathfinding</button>
+      <button id="sortingTab" class="tab-btn">Sorting</button>
+    </div>
+
+    <!-- Pathfinding Section -->
+    <div id="pathfinding" class="section active">
+        <div id="grid-container">
+            <!-- Grid will be dynamically generated here -->
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="controls">
+            <button id="start-dfs-button" class="control-btn" onclick="dfs()">Start DFS</button>
+            <button id="start-dijkstra-button" class="control-btn" onclick="bfs()">Start Dijkstra</button>
+            <button id="start-astar-button" class="control-btn" onclick="astar()">Start A*</button>
+            <button id="reset-path-button" class="control-btn" onclick="resetPath()">Reset Path</button>
+        </div>
+
+        <!-- Reset Grid Button -->
+        <div class="controls">
+            <button id="reset-button" class="control-btn" onclick="resetGrid()">Reset Grid</button>
+        </div>
+
+        <!-- Mode Display -->
+        <p id="mode-label" class="algorithm-name">Current Mode: Start</p>
+    </div>
+
+
+    <!-- Sorting Section -->
+    <div id="sorting" class="section">
+      <div id="sorting-container">
+     </div>
+
+      <div class="controls">
+        <button id="insertionSortBtn" class="control-btn algo-btn" onclick="insertionSort()">Start Insertion Sort</button>
+        <button id="bubbleSortBtn" class="control-btn algo-btn" onclick="bubbleSort()">Start Bubble Sort</button>
+        <button id="selectionSortBtn" class="control-btn algo-btn" onclick="selectionSort()">Start Selection Sort</button>
+        <button id="toggleDirectionBtn" class="control-btn" onclick="toggleDirection()">Toggle Direction</button>
+        <input type="number" id="numBars" class="control-input" value="20" min="10" max="200">
+        <button id="updateBarsBtn" class="control-btn" onclick="updateBars()">Update Bars</button>
+        <button id="resetBtn" class="control-btn" onclick="stop()">Stop</button>
+        <button id="resetBtn" class="control-btn" onclick="resetList()">Reset List</button>
+      </div>
+      <p id="algorithmName" class="algorithm-name">Current Algorithm: None (Ascending)</p>
     </div>
   </div>
-  <script src="script.js"></script>
+
+  <div>
+    <footer class="footer">
+        <p>Created by: Maikl Awad</p>
+        <p>© 2025 Pathfinding and Sorting Simulation. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="js/tabSwitch.js"></script>
+  <script src="js/pathFinding.js"></script>
+  <script src="js/sorting.js"></script>
 </body>
 </html>

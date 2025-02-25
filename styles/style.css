@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  /* height: 100%;  Ensures full height for the page */
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+  display: flex;
+  flex-direction: column;  /* Stacks the content vertically */
+}
+
+body {
+  overflow: auto;  /* Allows scrolling when content exceeds the page height */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;  /* Makes the container take up available space */
+  width: 90%;
+  max-width: 1200px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.tab-btn {
+  background-color: transparent;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tab-btn.active {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.tab-btn:hover {
+  background-color: #ddd;
+}
+
+.section {
+  display: none;
+  padding: 20px;
+}
+
+.section.active {
+  display: block;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.control-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.control-btn:hover {
+  background-color: #2980b9;
+}
+
+.algo-btn{
+  background-color: #26aa5d;
+}
+
+.algo-btn:hover{
+  background-color: #1a713e;
+}
+
+.control-input {
+  padding: 5px;
+  width: 80px;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.algorithm-name {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #3498db;
+}
+
+canvas {
+  display: block;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#sortingCanvas {
+  display: block;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  height: 400px;
+}
+
+/* Style for all reset buttons */
+button[id*="reset"] {
+  background-color: #e74c3c; /* A red color for reset buttons */
+  color: white;
+}
+
+button[id*="reset"]:hover {
+  background-color: #c0392b; /* Darker red when hovered */
+}
+
+/* Grid container styles are now handled dynamically in JS */
+#grid-container {
+  display: grid;
+  grid-gap: 1px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Blocked cells (representing walls or obstacles) */
+.grid-cell.blocked {
+  background-color: #7f8c8d; /* Dark grey for blocked cells */
+}
+
+.grid-cell {
+  background-color: #e4e4e4;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
+}
+
+.grid-cell:hover {
+  cursor: pointer;
+  background-color: #bdc3c7; /* Light grey when hovered */
+}
+
+.grid-cell.start {
+  background-color: #2ecc71; /* Green for start cell */
+}
+
+.grid-cell.target {
+  background-color: #e74c3c; /* Red for target cell */
+}
+
+.grid-cell.blocked {
+  background-color: #7f8c8d; /* Dark grey for blocked cells */
+}
+
+.grid-cell.visited {
+  background-color: lightblue;
+}
+
+.grid-cell.path {
+  background-color: green; 
+}
+
+.grid-cell {
+  background-color: #e4e4e4;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
+}
+
+.grid-cell:hover {
+  cursor: pointer;
+  background-color: #bdc3c7; /* Light grey when hovered */
+}
+
+#sorting-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  height: 400px;  /* Adjust based on canvas size */
+  width: 100%;
+  margin-top: 20px;
+}
+
+.bar {
+  background-color: #94c8eafb;  /* Default color */
+  margin: 0 2px;  /* Space between bars */
+  transition: all 0.2s ease;
+}
+
+.bar.current {
+  background-color: #e74c3c;  /* Color for current node */
+}
+
+.bar.compared {
+  background-color: #f39c12;  /* Color for compared node */
+}
+
+.bar.swapped{
+  background-color: #3498db;
+}
+
+.bar.sorted {
+  background-color: #2ecc71;  /* Color for sorted node */
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  margin-top: auto;  /* Push footer to the bottom */
+  width: 100%;
+  margin-top: 20px;
+}
+
+.footer p {
+  margin: 5px 0;
+}
